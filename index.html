@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Apelgamo Guide</title>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://www.google.com">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💒</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 400;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.8;
+      padding: 0 16px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    .header {
+      text-align: center;
+      padding: 32px 20px 28px;
+      margin-bottom: 16px;
+    }
+
+    .header-label {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 6px;
+    }
+
+    .header .ampersand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: #b8956e;
+      margin: 8px 0;
+    }
+
+    /* 정보 카드 공통 */
+    .info-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 0 20px 24px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .info-card:last-of-type {
+      margin-bottom: 40px;
+    }
+
+    .info-card-title {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 미니 캘린더 */
+    .mini-calendar {
+      text-align: center;
+    }
+
+    .calendar-month {
+      font-size: 15px;
+      font-weight: 500;
+      color: #b8956e;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .calendar-day-header {
+      font-size: 11px;
+      color: #999;
+      padding: 6px 0;
+      font-weight: 500;
+    }
+
+    .calendar-day-header:first-child {
+      color: #d9534f;
+    }
+
+    .calendar-day-header:last-child {
+      color: #5bc0de;
+    }
+
+    .calendar-day {
+      font-size: 13px;
+      color: #666;
+      padding: 8px 0;
+      border-radius: 50%;
+    }
+
+    .calendar-day.empty {
+      color: transparent;
+    }
+
+    .calendar-day.highlight {
+      background: #b8956e;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .calendar-day.sunday {
+      color: #d9534f;
+    }
+
+    .calendar-day.saturday {
+      color: #5bc0de;
+    }
+
+    .calendar-time {
+      font-size: 18px;
+      font-weight: 500;
+      color: #111;
+      margin-top: 8px;
+    }
+
+    .calendar-time span {
+      font-size: 14px;
+      color: #666;
+      font-weight: 400;
+    }
+
+    /* 장소 */
+    .venue-name {
+      font-size: 17px;
+      font-weight: 500;
+      color: #111;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .venue-map {
+      width: 100%;
+      height: 220px;
+      border: none;
+      border-radius: 8px;
+      display: block;
+    }
+
+    /* 타임라인 구분선 */
+    .section-divider {
+      border: none;
+      border-top: 1px solid #e0e0e0;
+      margin: 0 20px 40px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: #d0d0d0;
+    }
+
+    .ceremony-item {
+      position: relative;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .ceremony-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .ceremony-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 10px;
+      width: 9px;
+      height: 9px;
+      background: #b8956e;
+      border-radius: 50%;
+    }
+
+    .item-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .icon {
+      font-size: 22px;
+    }
+
+    .item-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #111;
+    }
+
+    .item-content {
+      font-size: 17px;
+      color: #222;
+      line-height: 1.9;
+    }
+
+    .item-content strong {
+      display: block;
+      color: #9a7544;
+      font-weight: 600;
+      margin-top: 14px;
+    }
+
+    .divider {
+      height: 18px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 48px 20px;
+      margin-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .footer-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #111;
+      margin-bottom: 10px;
+    }
+
+    .footer-sub {
+      font-size: 15px;
+      color: #444;
+      letter-spacing: 1px;
+    }
+
+    .footer-credit {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 12px 0;
+      }
+
+      .header {
+        padding: 24px 16px 20px;
+        margin-bottom: 12px;
+      }
+
+      .header-label {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+
+      .header h1 {
+        font-size: 26px;
+      }
+
+      .header .ampersand {
+        font-size: 24px;
+        margin: 6px 0;
+      }
+
+      .info-card {
+        margin: 0 16px 16px;
+        padding: 20px;
+      }
+
+      .info-card:last-of-type {
+        margin-bottom: 24px;
+      }
+
+      .section-divider {
+        margin: 0 16px 24px;
+      }
+
+      .ceremony-item {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+      }
+
+      .item-content {
+        font-size: 16px;
+      }
+
+      .venue-map {
+        height: 180px;
+      }
+
+      .footer {
+        padding: 36px 20px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 20mm;
+      }
+
+      .timeline::before,
+      .ceremony-item::before {
+        display: none;
+      }
+
+      .timeline {
+        padding-left: 0;
+      }
+
+      .venue-map {
+        display: none;
+      }
+
+      .info-card {
+        box-shadow: none;
+        border: 1px solid #e0e0e0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="header-label">Wedding Ceremony</div>
+    <h1>Jinsoo Hwang</h1>
+    <div class="ampersand">&</div>
+    <h1>Aurelia Jackson</h1>
+  </header>
+
+  <div class="info-card">
+    <div class="info-card-title">📅 Tarikh & Masa</div>
+    <div class="mini-calendar">
+      <div class="calendar-month">February 2026</div>
+      <div class="calendar-grid">
+        <div class="calendar-day-header">Sun</div>
+        <div class="calendar-day-header">Mon</div>
+        <div class="calendar-day-header">Tue</div>
+        <div class="calendar-day-header">Wed</div>
+        <div class="calendar-day-header">Thu</div>
+        <div class="calendar-day-header">Fri</div>
+        <div class="calendar-day-header">Sat</div>
+
+        <div class="calendar-day sunday highlight">1</div>
+        <div class="calendar-day">2</div>
+        <div class="calendar-day">3</div>
+        <div class="calendar-day">4</div>
+        <div class="calendar-day">5</div>
+        <div class="calendar-day">6</div>
+        <div class="calendar-day saturday">7</div>
+
+        <div class="calendar-day sunday">8</div>
+        <div class="calendar-day">9</div>
+        <div class="calendar-day">10</div>
+        <div class="calendar-day">11</div>
+        <div class="calendar-day">12</div>
+        <div class="calendar-day">13</div>
+        <div class="calendar-day saturday">14</div>
+
+        <div class="calendar-day sunday">15</div>
+        <div class="calendar-day">16</div>
+        <div class="calendar-day">17</div>
+        <div class="calendar-day">18</div>
+        <div class="calendar-day">19</div>
+        <div class="calendar-day">20</div>
+        <div class="calendar-day saturday">21</div>
+
+        <div class="calendar-day sunday">22</div>
+        <div class="calendar-day">23</div>
+        <div class="calendar-day">24</div>
+        <div class="calendar-day">25</div>
+        <div class="calendar-day">26</div>
+        <div class="calendar-day">27</div>
+        <div class="calendar-day saturday">28</div>
+      </div>
+      <div class="calendar-time">3:30 <span>PM (Sunday)</span></div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-title">📍 Lokasi</div>
+    <div class="venue-name">Apelgamo Gwanghwamun</div>
+    <iframe
+        class="venue-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.1688191367034!2d126.97771114652022!3d37.574642223662345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2ea6596d4f7%3A0xb159c50bcb81acc9!2sApelgamo_GwangHwaMun!5e0!3m2!1sen!2skr!4v1768995945636!5m2!1sen!2skr"
+        allowfullscreen=""
+        loading="lazy"
+        decoding="async"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <hr class="section-divider">
+
+  <div class="timeline">
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🪑</span>
+        <span class="item-title">Tetamu Mengambil Tempat Duduk</span>
+      </div>
+      <div class="item-content">
+        Majlis perkahwinan akan bermula sebentar lagi. Semua tetamu dialu-alukan untuk memasuki dewan majlis dan sila duduk di tempat yang disediakan. Sila pastikan telefon bimbit ditetapkan kepada mod senyap.
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🎤</span>
+        <span class="item-title">Kata Pembukaan</span>
+      </div>
+      <div class="item-content">
+        Terima kasih kepada semua yang hadir pada hari ini. Kini, kami akan memulakan majlis perkahwinan.
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🕯️</span>
+        <span class="item-title">Penyalaan Lilin Perpaduan</span>
+      </div>
+      <div class="item-content">
+        Kita akan memulakan dengan penyalaan lilin perpaduan oleh ibu bapa kedua-dua belah keluarga.
+        <strong>Kehadiran ibu bapa pengantin lelaki!</strong>
+        <strong>Kehadiran ibu bapa pengantin perempuan!</strong>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🤵</span>
+        <span class="item-title">Kehadiran Pengantin Lelaki</span>
+      </div>
+      <div class="item-content">
+        Seterusnya, kita menyambut salah seorang bintang hari ini, pengantin lelaki kita yang kacak.
+        <strong>Kehadiran pengantin lelaki!</strong>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">👰</span>
+        <span class="item-title">Kehadiran Pengantin Perempuan</span>
+      </div>
+      <div class="item-content">
+        Kini, kita menyambut bintang sebenar hari ini, pengantin perempuan kita yang cantik.
+        <strong>Kehadiran pengantin perempuan!</strong>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🙇</span>
+        <span class="item-title">Tunduk Hormat</span>
+      </div>
+      <div class="item-content">
+        Pengantin lelaki dan pengantin perempuan akan tunduk hormat antara satu sama lain.
+        <strong>Pengantin lelaki dan pengantin perempuan, sila tunduk!</strong>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">💍</span>
+        <span class="item-title">Pertukaran Cincin</span>
+      </div>
+      <div class="item-content">
+        Pengantin lelaki dan pengantin perempuan kini akan bertukar cincin sebagai simbol ikrar mereka antara satu sama lain.
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">📜</span>
+        <span class="item-title">Pengisytiharan Perkahwinan</span>
+      </div>
+      <div class="item-content">
+        Kini kita akan meneruskan dengan pengisytiharan perkahwinan. Pegawai akan menjalankan pengisytiharan.
+        <strong>Melalui pengisytiharan ini, perkahwinan telah sempurna.</strong>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🗣️</span>
+        <span class="item-title">Kata-kata Berkat</span>
+      </div>
+      <div class="item-content">
+        Bapa-bapa kedua-dua belah keluarga telah menyediakan kata-kata berkat penuh kasih sayang.
+        <strong>Bapa pengantin lelaki akan berucap terlebih dahulu.</strong>
+        <strong>Bapa pengantin perempuan akan menyusul.</strong>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🎵</span>
+        <span class="item-title">Persembahan Tahniah</span>
+      </div>
+      <div class="item-content">
+        Kami telah menyediakan persembahan tahniah yang istimewa. Persembahan hari ini dipersembahkan oleh rakan pengantin lelaki.
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">🙏</span>
+        <span class="item-title">Tunduk Hormat kepada Ibu Bapa dan Tetamu</span>
+      </div>
+      <div class="item-content">
+        Pengantin lelaki dan pengantin perempuan kini akan meluahkan rasa terima kasih kepada ibu bapa dan semua tetamu.
+        <strong>Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</strong>
+        Tunduk dengan penuh hormat dan kesyukuran! Ibu bapa, sila memeluk anak perempuan dan menantu lelaki anda.
+        <div class="divider"></div>
+        <strong>Kini, sila bergerak ke hadapan ibu bapa pengantin lelaki.</strong>
+        Sekali lagi, tunduk dengan penuh hormat! Ibu bapa, sila memeluk anak lelaki dan menantu perempuan anda.
+        <div class="divider"></div>
+        <strong>Kini, kami akan memberi salam kepada semua tetamu.</strong>
+        Terima kasih kepada semua kerana hadir. Kami akan hidup bahagia bersama. Pengantin, tunduk kepada tetamu!
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-header">
+        <span class="icon">💐</span>
+        <span class="item-title">Perarakan Keluar</span>
+      </div>
+      <div class="item-content">
+        Pengantin telah menyelesaikan semua prosiding majlis dan hanya tinggal perarakan menuju masa depan yang bahagia.
+        <strong>Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</strong>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-main">✨ Selamat Pengantin Baru ✨</div>
+    <div class="footer-sub">Semoga berkekalan hingga ke akhir hayat</div>
+    <div class="footer-credit">Made with ♥ by Jinsoo</div>
+  </footer>
+</div>
+</body>
+</html>
