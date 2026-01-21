@@ -185,74 +185,102 @@
 
     .timeline {
       position: relative;
-      padding-left: 28px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 6px;
-      top: 8px;
-      bottom: 8px;
-      width: 1px;
-      background: #d0d0d0;
+      padding-left: 0;
     }
 
     .ceremony-item {
       position: relative;
-      margin-bottom: 32px;
-      padding-bottom: 32px;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 16px;
+      margin-bottom: 0;
+      padding: 24px 0;
       border-bottom: 1px solid #e8e8e8;
+    }
+
+    .ceremony-item:first-child {
+      padding-top: 0;
     }
 
     .ceremony-item:last-child {
       border-bottom: none;
-      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
-    .ceremony-item::before {
-      content: '';
-      position: absolute;
-      left: -24px;
-      top: 10px;
-      width: 9px;
-      height: 9px;
-      background: #b8956e;
-      border-radius: 50%;
+    .item-time-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2px;
+    }
+
+    .item-time {
+      font-size: 15px;
+      font-weight: 600;
+      color: #b8956e;
+      letter-spacing: -0.5px;
+    }
+
+    .item-time-line {
+      flex: 1;
+      width: 2px;
+      background: linear-gradient(to bottom, #b8956e 0%, #e0d5c7 100%);
+      margin-top: 8px;
+      border-radius: 1px;
+      min-height: 20px;
+    }
+
+    .ceremony-item:last-child .item-time-line {
+      display: none;
+    }
+
+    .item-content-column {
+      min-width: 0;
     }
 
     .item-header {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .icon {
       font-size: 22px;
+      flex-shrink: 0;
     }
 
     .item-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 500;
       color: #111;
     }
 
     .item-content {
-      font-size: 17px;
-      color: #222;
-      line-height: 1.9;
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
     }
 
     .item-content strong {
       display: block;
       color: #9a7544;
       font-weight: 600;
-      margin-top: 14px;
+      margin-top: 12px;
     }
 
     .divider {
-      height: 18px;
+      height: 14px;
+    }
+
+    /* 주요 시간대 강조 */
+    .ceremony-item.highlight-time .item-time {
+      font-size: 17px;
+      color: #fff;
+      background: #b8956e;
+      padding: 6px 8px;
+      border-radius: 8px;
+      margin: -6px -4px;
     }
 
     .footer {
@@ -320,12 +348,26 @@
       }
 
       .ceremony-item {
-        margin-bottom: 24px;
-        padding-bottom: 24px;
+        grid-template-columns: 50px 1fr;
+        gap: 12px;
+        padding: 20px 0;
+      }
+
+      .item-time {
+        font-size: 13px;
+      }
+
+      .ceremony-item.highlight-time .item-time {
+        font-size: 14px;
+        padding: 5px 6px;
+      }
+
+      .item-title {
+        font-size: 16px;
       }
 
       .item-content {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .venue-map {
@@ -343,13 +385,8 @@
         padding: 20mm;
       }
 
-      .timeline::before,
-      .ceremony-item::before {
+      .item-time-line {
         display: none;
-      }
-
-      .timeline {
-        padding-left: 0;
       }
 
       .venue-map {
@@ -437,140 +474,260 @@
   <hr class="section-divider">
 
   <div class="timeline">
-    <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🪑</span>
-        <span class="item-title">Tetamu Mengambil Tempat Duduk</span>
+    <div class="ceremony-item highlight-time">
+      <div class="item-time-column">
+        <span class="item-time">3:00</span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Majlis perkahwinan akan bermula sebentar lagi. Semua tetamu dialu-alukan untuk memasuki dewan majlis dan sila duduk di tempat yang disediakan. Sila pastikan telefon bimbit ditetapkan kepada mod senyap.
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🎫</span>
+          <span class="item-title">Sebelum Majlis Bermula</span>
+        </div>
+        <div class="item-content">
+          Sila ambil tiket makanan atau lawati bilik menunggu pengantin perempuan
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item highlight-time">
+      <div class="item-time-column">
+        <span class="item-time">3:30</span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🪑</span>
+          <span class="item-title">Tetamu Mengambil Tempat Duduk</span>
+        </div>
+        <div class="item-content">
+          Majlis perkahwinan akan bermula sebentar lagi. Semua tetamu dialu-alukan untuk memasuki dewan majlis dan sila duduk di tempat yang disediakan. Sila pastikan telefon bimbit ditetapkan kepada mod senyap.
+        </div>
       </div>
     </div>
 
     <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🎤</span>
-        <span class="item-title">Kata Pembukaan</span>
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Terima kasih kepada semua yang hadir pada hari ini. Kini, kami akan memulakan majlis perkahwinan.
-      </div>
-    </div>
-
-    <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🕯️</span>
-        <span class="item-title">Penyalaan Lilin Perpaduan</span>
-      </div>
-      <div class="item-content">
-        Kita akan memulakan dengan penyalaan lilin perpaduan oleh ibu bapa kedua-dua belah keluarga.
-        <strong>Kehadiran ibu bapa pengantin lelaki!</strong>
-        <strong>Kehadiran ibu bapa pengantin perempuan!</strong>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🎤</span>
+          <span class="item-title">Kata Pembukaan</span>
+        </div>
+        <div class="item-content">
+          Terima kasih kepada semua yang hadir pada hari ini. Kini, kami akan memulakan majlis perkahwinan.
+        </div>
       </div>
     </div>
 
     <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🤵</span>
-        <span class="item-title">Kehadiran Pengantin Lelaki</span>
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Seterusnya, kita menyambut salah seorang bintang hari ini, pengantin lelaki kita yang kacak.
-        <strong>Kehadiran pengantin lelaki!</strong>
-      </div>
-    </div>
-
-    <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">👰</span>
-        <span class="item-title">Kehadiran Pengantin Perempuan</span>
-      </div>
-      <div class="item-content">
-        Kini, kita menyambut bintang sebenar hari ini, pengantin perempuan kita yang cantik.
-        <strong>Kehadiran pengantin perempuan!</strong>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🕯️</span>
+          <span class="item-title">Penyalaan Lilin Perpaduan</span>
+        </div>
+        <div class="item-content">
+          Kita akan memulakan dengan penyalaan lilin perpaduan oleh ibu bapa kedua-dua belah keluarga.
+          <strong>Kehadiran ibu bapa pengantin lelaki!</strong>
+          <strong>Kehadiran ibu bapa pengantin perempuan!</strong>
+        </div>
       </div>
     </div>
 
     <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🙇</span>
-        <span class="item-title">Tunduk Hormat</span>
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Pengantin lelaki dan pengantin perempuan akan tunduk hormat antara satu sama lain.
-        <strong>Pengantin lelaki dan pengantin perempuan, sila tunduk!</strong>
-      </div>
-    </div>
-
-    <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">💍</span>
-        <span class="item-title">Pertukaran Cincin</span>
-      </div>
-      <div class="item-content">
-        Pengantin lelaki dan pengantin perempuan kini akan bertukar cincin sebagai simbol ikrar mereka antara satu sama lain.
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🤵</span>
+          <span class="item-title">Kehadiran Pengantin Lelaki</span>
+        </div>
+        <div class="item-content">
+          Seterusnya, kita menyambut salah seorang bintang hari ini, pengantin lelaki kita yang kacak.
+          <strong>Kehadiran pengantin lelaki!</strong>
+        </div>
       </div>
     </div>
 
     <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">📜</span>
-        <span class="item-title">Pengisytiharan Perkahwinan</span>
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Kini kita akan meneruskan dengan pengisytiharan perkahwinan. Pegawai akan menjalankan pengisytiharan.
-        <strong>Melalui pengisytiharan ini, perkahwinan telah sempurna.</strong>
-      </div>
-    </div>
-
-    <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🗣️</span>
-        <span class="item-title">Kata-kata Berkat</span>
-      </div>
-      <div class="item-content">
-        Bapa-bapa kedua-dua belah keluarga telah menyediakan kata-kata berkat penuh kasih sayang.
-        <strong>Bapa pengantin lelaki akan berucap terlebih dahulu.</strong>
-        <strong>Bapa pengantin perempuan akan menyusul.</strong>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">👰</span>
+          <span class="item-title">Kehadiran Pengantin Perempuan</span>
+        </div>
+        <div class="item-content">
+          Kini, kita menyambut bintang sebenar hari ini, pengantin perempuan kita yang cantik.
+          <strong>Kehadiran pengantin perempuan!</strong>
+        </div>
       </div>
     </div>
 
     <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🎵</span>
-        <span class="item-title">Persembahan Tahniah</span>
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Kami telah menyediakan persembahan tahniah yang istimewa. Persembahan hari ini dipersembahkan oleh rakan pengantin lelaki.
-      </div>
-    </div>
-
-    <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">🙏</span>
-        <span class="item-title">Tunduk Hormat kepada Ibu Bapa dan Tetamu</span>
-      </div>
-      <div class="item-content">
-        Pengantin lelaki dan pengantin perempuan kini akan meluahkan rasa terima kasih kepada ibu bapa dan semua tetamu.
-        <strong>Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</strong>
-        Tunduk dengan penuh hormat dan kesyukuran! Ibu bapa, sila memeluk anak perempuan dan menantu lelaki anda.
-        <div class="divider"></div>
-        <strong>Kini, sila bergerak ke hadapan ibu bapa pengantin lelaki.</strong>
-        Sekali lagi, tunduk dengan penuh hormat! Ibu bapa, sila memeluk anak lelaki dan menantu perempuan anda.
-        <div class="divider"></div>
-        <strong>Kini, kami akan memberi salam kepada semua tetamu.</strong>
-        Terima kasih kepada semua kerana hadir. Kami akan hidup bahagia bersama. Pengantin, tunduk kepada tetamu!
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🙇</span>
+          <span class="item-title">Tunduk Hormat</span>
+        </div>
+        <div class="item-content">
+          Pengantin lelaki dan pengantin perempuan akan tunduk hormat antara satu sama lain.
+          <strong>Pengantin lelaki dan pengantin perempuan, sila tunduk!</strong>
+        </div>
       </div>
     </div>
 
     <div class="ceremony-item">
-      <div class="item-header">
-        <span class="icon">💐</span>
-        <span class="item-title">Perarakan Keluar</span>
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
       </div>
-      <div class="item-content">
-        Pengantin telah menyelesaikan semua prosiding majlis dan hanya tinggal perarakan menuju masa depan yang bahagia.
-        <strong>Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</strong>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">💍</span>
+          <span class="item-title">Pertukaran Cincin</span>
+        </div>
+        <div class="item-content">
+          Pengantin lelaki dan pengantin perempuan kini akan bertukar cincin sebagai simbol ikrar mereka antara satu sama lain.
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">📜</span>
+          <span class="item-title">Pengisytiharan Perkahwinan</span>
+        </div>
+        <div class="item-content">
+          Kini kita akan meneruskan dengan pengisytiharan perkahwinan. Pegawai akan menjalankan pengisytiharan.
+          <strong>Melalui pengisytiharan ini, perkahwinan telah sempurna.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🗣️</span>
+          <span class="item-title">Kata-kata Berkat</span>
+        </div>
+        <div class="item-content">
+          Bapa-bapa kedua-dua belah keluarga telah menyediakan kata-kata berkat penuh kasih sayang.
+          <strong>Bapa pengantin lelaki akan berucap terlebih dahulu.</strong>
+          <strong>Bapa pengantin perempuan akan menyusul.</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🎵</span>
+          <span class="item-title">Persembahan Tahniah</span>
+        </div>
+        <div class="item-content">
+          Kami telah menyediakan persembahan tahniah yang istimewa. Persembahan hari ini dipersembahkan oleh rakan pengantin lelaki.
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🙏</span>
+          <span class="item-title">Tunduk Hormat kepada Ibu Bapa dan Tetamu</span>
+        </div>
+        <div class="item-content">
+          Pengantin lelaki dan pengantin perempuan kini akan meluahkan rasa terima kasih kepada ibu bapa dan semua tetamu.
+          <strong>Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</strong>
+          Tunduk dengan penuh hormat dan kesyukuran! Ibu bapa, sila memeluk anak perempuan dan menantu lelaki anda.
+          <div class="divider"></div>
+          <strong>Kini, sila bergerak ke hadapan ibu bapa pengantin lelaki.</strong>
+          Sekali lagi, tunduk dengan penuh hormat! Ibu bapa, sila memeluk anak lelaki dan menantu perempuan anda.
+          <div class="divider"></div>
+          <strong>Kini, kami akan memberi salam kepada semua tetamu.</strong>
+          Terima kasih kepada semua kerana hadir. Kami akan hidup bahagia bersama. Pengantin, tunduk kepada tetamu!
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">💐</span>
+          <span class="item-title">Perarakan Keluar</span>
+        </div>
+        <div class="item-content">
+          Pengantin telah menyelesaikan semua prosiding majlis dan hanya tinggal perarakan menuju masa depan yang bahagia.
+          <strong>Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item">
+      <div class="item-time-column">
+        <span class="item-time"></span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">📸</span>
+          <span class="item-title">Sesi Fotografi</span>
+        </div>
+        <div class="item-content">
+          Ahli keluarga dan saudara-mara dijemput ke hadapan untuk sesi bergambar bersama pengantin.
+        </div>
+      </div>
+    </div>
+
+    <div class="ceremony-item highlight-time">
+      <div class="item-time-column">
+        <span class="item-time">4:30</span>
+        <div class="item-time-line"></div>
+      </div>
+      <div class="item-content-column">
+        <div class="item-header">
+          <span class="icon">🍽️</span>
+          <span class="item-title">Selepas Majlis Selesai</span>
+        </div>
+        <div class="item-content">
+          Sila hadir ke dewan bufet untuk jamuan
+        </div>
       </div>
     </div>
   </div>
