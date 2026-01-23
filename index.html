@@ -289,11 +289,77 @@
       line-height: 1.9;
     }
 
-    .item-content strong {
+    /* 사회자 말풍선 스타일 */
+    .mc-bubble {
       display: block;
-      color: #c9976a;
+      position: relative;
+      background: linear-gradient(135deg, #fff8f0 0%, #fff5eb 100%);
+      border: 1px solid rgba(212, 165, 116, 0.3);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: 500;
+      color: #b8864a;
+      box-shadow: 0 2px 8px rgba(212, 165, 116, 0.12);
+    }
+
+    .mc-bubble::before {
+      content: '🎤 Pengacara';
+      display: block;
+      font-size: 12px;
       font-weight: 600;
-      margin-top: 14px;
+      color: #c9976a;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .mc-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 16px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid rgba(212, 165, 116, 0.3);
+    }
+
+    .notice-bubble {
+      display: block;
+      position: relative;
+      background: linear-gradient(135deg, #fff8f0 0%, #fff5eb 100%);
+      border: 1px solid rgba(212, 165, 116, 0.3);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: 500;
+      color: #b8864a;
+      box-shadow: 0 2px 8px rgba(212, 165, 116, 0.12);
+    }
+
+    .notice-bubble::before {
+      content: '📢 Notice';
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #c9976a;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .notice-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      right: 16px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid rgba(212, 165, 116, 0.3);
     }
 
     .divider {
@@ -432,6 +498,15 @@
         font-size: 14px;
       }
 
+      .mc-bubble {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
+      .mc-bubble::before {
+        font-size: 10px;
+      }
+
       .venue-map {
         height: 180px;
       }
@@ -463,6 +538,11 @@
       .info-card {
         box-shadow: none;
         border: 1px solid #e8ddd0;
+      }
+
+      .mc-bubble {
+        box-shadow: none;
+        border: 1px solid #d4a574;
       }
 
       .container::before,
@@ -559,7 +639,7 @@
           </div>
           <div class="item-content">
             Jemput berjumpa pengantin perempuan di bilik persediaan untuk memberi ucapan tahniah.
-            <strong>Para hadirin juga sila pastikan telah mendapat tiket jamuan yang diedarkan oleh ibu bapa pengantin.</strong>
+            <span class="notice-bubble">Para hadirin juga sila pastikan telah mendapat tiket jamuan yang diedarkan oleh ibu bapa pengantin.</span>
           </div>
         </div>
       </div>
@@ -608,8 +688,8 @@
           </div>
           <div class="item-content">
             Kita akan memulakan dengan penyalaan lilin perpaduan oleh ibu kedua-dua belah keluarga.
-            <strong>Dijemput ibu bapa pengantin lelaki!</strong>
-            <strong>Dijemput ibu bapa pengantin perempuan!</strong>
+            <span class="mc-bubble">Dijemput ibu bapa pengantin lelaki!</span>
+            <span class="mc-bubble">Dijemput ibu bapa pengantin perempuan!</span>
           </div>
         </div>
       </div>
@@ -658,7 +738,7 @@
           </div>
           <div class="item-content">
             Pengantin lelaki dan pengantin perempuan akan memberi tunduk hormat antara satu sama lain.
-            <strong>Pengacara: Pengantin lelaki dan pengantin perempuan, sila tunduk hormat!</strong>
+            <span class="mc-bubble">Pengantin lelaki dan pengantin perempuan, sila tunduk hormat!</span>
           </div>
         </div>
       </div>
@@ -691,7 +771,7 @@
           </div>
           <div class="item-content">
             Sekarang kita akan meneruskan dengan pengisytiharan perkahwinan. Pegawai akan menjalankan pengisytiharan.
-            <strong>Melalui pengisytiharan ini, majlis perkahwinan telah selesai.</strong>
+            <span class="mc-bubble">Melalui pengisytiharan ini, majlis perkahwinan telah selesai.</span>
           </div>
         </div>
       </div>
@@ -708,8 +788,8 @@
           </div>
           <div class="item-content">
             Bapa kedua-dua belah keluarga telah menyediakan kata-kata restu penuh kasih sayang.
-            <strong>Bapa pengantin lelaki akan berucap terlebih dahulu.</strong>
-            <strong>Bapa pengantin perempuan akan menyusul.</strong>
+            <span class="mc-bubble">Bapa pengantin lelaki akan berucap terlebih dahulu.</span>
+            <span class="mc-bubble">Bapa pengantin perempuan akan menyusul.</span>
           </div>
         </div>
       </div>
@@ -742,13 +822,13 @@
           </div>
           <div class="item-content">
             Pengantin lelaki dan pengantin perempuan kini akan mengucapkan terima kasih kepada ibu bapa dan semua tetamu.
-            <strong>Pengacara: Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</strong>
+            <span class="mc-bubble">Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</span>
             Ibu bapa, sila peluk anak perempuan dan menantu lelaki anda.
             <div class="divider"></div>
-            <strong>Sekarang, sila bergerak ke hadapan ibu bapa pengantin lelaki.</strong>
+            <span class="mc-bubble">Sekarang, sila bergerak ke hadapan ibu bapa pengantin lelaki.</span>
             Ibu bapa, sila peluk anak lelaki dan menantu perempuan anda.
             <div class="divider"></div>
-            <strong>Sekarang, kami akan memberi salam kepada semua tetamu.</strong>
+            <span class="mc-bubble">Sekarang, kami akan memberi salam kepada semua tetamu.</span>
             Terima kasih kepada semua kerana hadir.
           </div>
         </div>
@@ -766,7 +846,7 @@
           </div>
           <div class="item-content">
             Pengantin telah menyelesaikan semua prosiding majlis dan akan berarak ke luar dewan.
-            <strong>Pengacara: Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</strong>
+            <span class="mc-bubble">Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</span>
           </div>
         </div>
       </div>
