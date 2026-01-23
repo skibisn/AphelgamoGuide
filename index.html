@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ms">
 <head>
@@ -22,10 +21,11 @@
     body {
       font-family: 'Noto Sans', sans-serif;
       font-weight: 400;
-      background: #fafafa;
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #fdf8f5 0%, #fef9f3 50%, #fdf5f0 100%);
+      color: #3d3535;
       line-height: 1.8;
       padding: 0 16px;
+      min-height: 100vh;
     }
 
     .container {
@@ -36,40 +36,59 @@
 
     .header {
       text-align: center;
-      padding: 32px 20px 28px;
-      margin-bottom: 16px;
+      padding: 40px 20px 36px;
+      margin-bottom: 20px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4a574, transparent);
     }
 
     .header-label {
-      font-size: 13px;
-      letter-spacing: 4px;
+      font-size: 12px;
+      letter-spacing: 5px;
       text-transform: uppercase;
-      color: #555;
-      margin-bottom: 16px;
+      color: #c9a87c;
+      margin-bottom: 20px;
+      margin-top: 16px;
     }
 
     .header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: 600;
-      color: #111;
+      color: #5c4a3d;
       margin-bottom: 6px;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
 
     .header .ampersand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      color: #b8956e;
-      margin: 8px 0;
+      font-size: 32px;
+      color: #d4a574;
+      margin: 10px 0;
+      opacity: 0.9;
     }
 
     /* 정보 카드 공통 */
     .info-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
+      background: linear-gradient(145deg, #ffffff 0%, #fffdfb 100%);
+      border-radius: 16px;
+      padding: 28px;
       margin: 0 20px 24px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(180, 140, 100, 0.08),
+      0 1px 3px rgba(180, 140, 100, 0.05);
+      border: 1px solid rgba(212, 165, 116, 0.15);
     }
 
     .info-card:last-of-type {
@@ -77,11 +96,11 @@
     }
 
     .info-card-title {
-      font-size: 13px;
-      letter-spacing: 2px;
+      font-size: 12px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: #888;
-      margin-bottom: 16px;
+      color: #c9a87c;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -95,38 +114,40 @@
     .calendar-month {
       font-size: 15px;
       font-weight: 500;
-      color: #b8956e;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
+      color: #d4a574;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
     }
 
     .calendar-grid {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 4px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .calendar-day-header {
       font-size: 11px;
-      color: #999;
+      color: #8b7b6b;
       padding: 6px 0;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .calendar-day-header:first-child {
-      color: #d9534f;
+      color: #d4857a;
     }
 
     .calendar-day-header:last-child {
-      color: #5bc0de;
+      color: #7aa8b8;
     }
 
     .calendar-day {
-      font-size: 13px;
-      color: #666;
+      font-size: 14px;
+      color: #5c4a3d;
       padding: 8px 0;
       border-radius: 50%;
+      transition: all 0.2s ease;
+      font-weight: 500;
     }
 
     .calendar-day.empty {
@@ -134,29 +155,30 @@
     }
 
     .calendar-day.highlight {
-      background: #b8956e;
+      background: linear-gradient(135deg, #d4a574 0%, #c9976a 100%);
       color: #fff;
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(212, 165, 116, 0.4);
     }
 
     .calendar-day.sunday {
-      color: #d9534f;
+      color: #c96b5e;
     }
 
     .calendar-day.saturday {
-      color: #5bc0de;
+      color: #5a9aad;
     }
 
     .calendar-time {
       font-size: 18px;
       font-weight: 500;
-      color: #111;
-      margin-top: 8px;
+      color: #5c4a3d;
+      margin-top: 10px;
     }
 
     .calendar-time span {
       font-size: 14px;
-      color: #666;
+      color: #a08070;
       font-weight: 400;
     }
 
@@ -164,8 +186,8 @@
     .venue-name {
       font-size: 17px;
       font-weight: 500;
-      color: #111;
-      margin-bottom: 16px;
+      color: #5c4a3d;
+      margin-bottom: 18px;
       text-align: center;
     }
 
@@ -173,15 +195,18 @@
       width: 100%;
       height: 220px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       display: block;
+      box-shadow: 0 2px 12px rgba(180, 140, 100, 0.1);
     }
 
     /* 타임라인 구분선 */
     .section-divider {
       border: none;
-      border-top: 1px solid #e0e0e0;
-      margin: 0 20px 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4a574, transparent);
+      margin: 0 40px 40px;
+      opacity: 0.5;
     }
 
     .timeline {
@@ -195,8 +220,8 @@
       grid-template-columns: 60px 1fr;
       gap: 16px;
       margin-bottom: 0;
-      padding: 24px 0;
-      border-bottom: 1px solid #e8e8e8;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(212, 165, 116, 0.2);
     }
 
     .ceremony-item:first-child {
@@ -218,15 +243,15 @@
     .item-time {
       font-size: 15px;
       font-weight: 600;
-      color: #b8956e;
+      color: #d4a574;
       letter-spacing: -0.5px;
     }
 
     .item-time-line {
       flex: 1;
       width: 2px;
-      background: linear-gradient(to bottom, #b8956e 0%, #e0d5c7 100%);
-      margin-top: 8px;
+      background: linear-gradient(to bottom, #d4a574 0%, #efe5dc 100%);
+      margin-top: 10px;
       border-radius: 1px;
       min-height: 20px;
     }
@@ -242,73 +267,109 @@
     .item-header {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
     .icon {
-      font-size: 22px;
+      font-size: 24px;
       flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
     }
 
     .item-title {
       font-size: 17px;
       font-weight: 500;
-      color: #111;
+      color: #5c4a3d;
     }
 
     .item-content {
       font-size: 15px;
-      color: #444;
-      line-height: 1.8;
+      color: #6b5b4f;
+      line-height: 1.9;
     }
 
     .item-content strong {
       display: block;
-      color: #9a7544;
+      color: #c9976a;
       font-weight: 600;
-      margin-top: 12px;
+      margin-top: 14px;
     }
 
     .divider {
-      height: 14px;
+      height: 16px;
     }
 
     /* 주요 시간대 강조 */
     .ceremony-item.highlight-time .item-time {
-      font-size: 17px;
+      font-size: 16px;
       color: #fff;
-      background: #b8956e;
-      padding: 6px 8px;
-      border-radius: 8px;
+      background: linear-gradient(135deg, #d4a574 0%, #c9976a 100%);
+      padding: 7px 10px;
+      border-radius: 10px;
       margin: -6px -4px;
+      box-shadow: 0 3px 10px rgba(212, 165, 116, 0.35);
     }
 
     .footer {
       text-align: center;
-      padding: 48px 20px;
-      margin-top: 20px;
-      border-top: 1px solid #e0e0e0;
+      padding: 56px 20px;
+      margin-top: 24px;
+      border-top: 1px solid rgba(212, 165, 116, 0.2);
+      background: linear-gradient(180deg, transparent 0%, rgba(255, 253, 251, 0.8) 100%);
     }
 
     .footer-main {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
-      color: #111;
-      margin-bottom: 10px;
+      font-size: 26px;
+      color: #5c4a3d;
+      margin-bottom: 12px;
     }
 
     .footer-sub {
       font-size: 15px;
-      color: #444;
+      color: #8b7b6b;
       letter-spacing: 1px;
     }
 
     .footer-credit {
       font-size: 11px;
-      color: #aaa;
-      margin-top: 24px;
+      color: #c9b8a8;
+      margin-top: 28px;
       letter-spacing: 0.5px;
+    }
+
+    /* 플로럴 장식 요소 */
+    .container::before {
+      content: '❀';
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      opacity: 0.15;
+      color: #d4a574;
+    }
+
+    .container::after {
+      content: '❀';
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      font-size: 24px;
+      opacity: 0.15;
+      color: #d4a574;
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 30px;
+      }
+
+      .info-card {
+        margin: 0 16px 20px;
+        padding: 24px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -317,41 +378,41 @@
       }
 
       .header {
-        padding: 24px 16px 20px;
-        margin-bottom: 12px;
+        padding: 32px 16px 28px;
+        margin-bottom: 16px;
       }
 
       .header-label {
-        font-size: 12px;
-        margin-bottom: 12px;
+        font-size: 11px;
+        margin-bottom: 16px;
       }
 
       .header h1 {
-        font-size: 26px;
+        font-size: 28px;
       }
 
       .header .ampersand {
-        font-size: 24px;
-        margin: 6px 0;
+        font-size: 26px;
+        margin: 8px 0;
       }
 
       .info-card {
         margin: 0 16px 16px;
-        padding: 20px;
+        padding: 22px;
       }
 
       .info-card:last-of-type {
-        margin-bottom: 24px;
+        margin-bottom: 28px;
       }
 
       .section-divider {
-        margin: 0 16px 24px;
+        margin: 0 30px 28px;
       }
 
       .ceremony-item {
         grid-template-columns: 50px 1fr;
         gap: 12px;
-        padding: 20px 0;
+        padding: 22px 0;
       }
 
       .item-time {
@@ -359,8 +420,8 @@
       }
 
       .ceremony-item.highlight-time .item-time {
-        font-size: 14px;
-        padding: 5px 6px;
+        font-size: 13px;
+        padding: 6px 8px;
       }
 
       .item-title {
@@ -376,7 +437,12 @@
       }
 
       .footer {
-        padding: 36px 20px;
+        padding: 44px 20px;
+      }
+
+      .container::before,
+      .container::after {
+        display: none;
       }
     }
 
@@ -396,7 +462,12 @@
 
       .info-card {
         box-shadow: none;
-        border: 1px solid #e0e0e0;
+        border: 1px solid #e8ddd0;
+      }
+
+      .container::before,
+      .container::after {
+        display: none;
       }
     }
   </style>
@@ -410,328 +481,329 @@
     <h1>Aurelia Jackson</h1>
   </header>
 
-  <div class="info-card">
-    <div class="info-card-title">📅 Tarikh & Masa</div>
-    <div class="mini-calendar">
-      <div class="calendar-month">February 2026</div>
-      <div class="calendar-grid">
-        <div class="calendar-day-header">Sun</div>
-        <div class="calendar-day-header">Mon</div>
-        <div class="calendar-day-header">Tue</div>
-        <div class="calendar-day-header">Wed</div>
-        <div class="calendar-day-header">Thu</div>
-        <div class="calendar-day-header">Fri</div>
-        <div class="calendar-day-header">Sat</div>
+  <main>
+    <div class="info-card">
+      <div class="info-card-title">📅 Tarikh & Masa</div>
+      <div class="mini-calendar">
+        <div class="calendar-month">February 2026</div>
+        <div class="calendar-grid">
+          <div class="calendar-day-header">Sun</div>
+          <div class="calendar-day-header">Mon</div>
+          <div class="calendar-day-header">Tue</div>
+          <div class="calendar-day-header">Wed</div>
+          <div class="calendar-day-header">Thu</div>
+          <div class="calendar-day-header">Fri</div>
+          <div class="calendar-day-header">Sat</div>
 
-        <div class="calendar-day sunday highlight">1</div>
-        <div class="calendar-day">2</div>
-        <div class="calendar-day">3</div>
-        <div class="calendar-day">4</div>
-        <div class="calendar-day">5</div>
-        <div class="calendar-day">6</div>
-        <div class="calendar-day saturday">7</div>
+          <div class="calendar-day sunday highlight">1</div>
+          <div class="calendar-day">2</div>
+          <div class="calendar-day">3</div>
+          <div class="calendar-day">4</div>
+          <div class="calendar-day">5</div>
+          <div class="calendar-day">6</div>
+          <div class="calendar-day saturday">7</div>
 
-        <div class="calendar-day sunday">8</div>
-        <div class="calendar-day">9</div>
-        <div class="calendar-day">10</div>
-        <div class="calendar-day">11</div>
-        <div class="calendar-day">12</div>
-        <div class="calendar-day">13</div>
-        <div class="calendar-day saturday">14</div>
+          <div class="calendar-day sunday">8</div>
+          <div class="calendar-day">9</div>
+          <div class="calendar-day">10</div>
+          <div class="calendar-day">11</div>
+          <div class="calendar-day">12</div>
+          <div class="calendar-day">13</div>
+          <div class="calendar-day saturday">14</div>
 
-        <div class="calendar-day sunday">15</div>
-        <div class="calendar-day">16</div>
-        <div class="calendar-day">17</div>
-        <div class="calendar-day">18</div>
-        <div class="calendar-day">19</div>
-        <div class="calendar-day">20</div>
-        <div class="calendar-day saturday">21</div>
+          <div class="calendar-day sunday">15</div>
+          <div class="calendar-day">16</div>
+          <div class="calendar-day">17</div>
+          <div class="calendar-day">18</div>
+          <div class="calendar-day">19</div>
+          <div class="calendar-day">20</div>
+          <div class="calendar-day saturday">21</div>
 
-        <div class="calendar-day sunday">22</div>
-        <div class="calendar-day">23</div>
-        <div class="calendar-day">24</div>
-        <div class="calendar-day">25</div>
-        <div class="calendar-day">26</div>
-        <div class="calendar-day">27</div>
-        <div class="calendar-day saturday">28</div>
-      </div>
-      <div class="calendar-time">3:30 <span>PM (Sunday)</span></div>
-    </div>
-  </div>
-
-  <div class="info-card">
-    <div class="info-card-title">📍 Lokasi</div>
-    <div class="venue-name">Apelgamo Gwanghwamun</div>
-    <iframe
-        class="venue-map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.1688191367034!2d126.97771114652022!3d37.574642223662345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2ea6596d4f7%3A0xb159c50bcb81acc9!2sApelgamo_GwangHwaMun!5e0!3m2!1sen!2skr!4v1768995945636!5m2!1sen!2skr"
-        allowfullscreen=""
-        loading="lazy"
-        decoding="async"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
-  <hr class="section-divider">
-
-  <div class="timeline">
-    <div class="ceremony-item highlight-time">
-      <div class="item-time-column">
-        <span class="item-time">3:00</span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🎫</span>
-          <span class="item-title">Sebelum Majlis</span>
+          <div class="calendar-day sunday">22</div>
+          <div class="calendar-day">23</div>
+          <div class="calendar-day">24</div>
+          <div class="calendar-day">25</div>
+          <div class="calendar-day">26</div>
+          <div class="calendar-day">27</div>
+          <div class="calendar-day saturday">28</div>
         </div>
-        <div class="item-content">
-          Jemput berjumpa pengantin perempuan di bilik persediaan untuk memberi ucapan tahniah
-        </div>
+        <div class="calendar-time">3:30 <span>PM (Sunday)</span></div>
       </div>
     </div>
 
-    <div class="ceremony-item highlight-time">
-      <div class="item-time-column">
-        <span class="item-time">3:30</span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🪑</span>
-          <span class="item-title">Tetamu Sila Duduk</span>
-        </div>
-        <div class="item-content">
-          Majlis perkahwinan akan bermula sebentar lagi. Semua tetamu dialu-alukan untuk memasuki dewan majlis dan sila duduk di tempat yang disediakan. Sila pastikan telefon bimbit ditetapkan kepada mod senyap.
-        </div>
-      </div>
+    <div class="info-card">
+      <div class="info-card-title">📍 Lokasi</div>
+      <div class="venue-name">Apelgamo Gwanghwamun</div>
+      <iframe
+          class="venue-map"
+          title="Peta lokasi Apelgamo Gwanghwamun"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.1688191367034!2d126.97771114652022!3d37.574642223662345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2ea6596d4f7%3A0xb159c50bcb81acc9!2sApelgamo_GwangHwaMun!5e0!3m2!1sen!2skr!4v1768995945636!5m2!1sen!2skr"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🎤</span>
-          <span class="item-title">Kata Pembukaan</span>
-        </div>
-        <div class="item-content">
-          Terima kasih kepada semua yang hadir pada hari ini. Kini, kami akan memulakan majlis perkahwinan.
-        </div>
-      </div>
-    </div>
+    <hr class="section-divider">
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🕯️</span>
-          <span class="item-title">Penyalaan Lilin Perpaduan</span>
+    <div class="timeline">
+      <div class="ceremony-item highlight-time">
+        <div class="item-time-column">
+          <span class="item-time">3:00</span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Kita akan memulakan dengan penyalaan lilin perpaduan oleh ibu kedua-dua belah keluarga.
-          <strong>Jemputan ibu bapa pengantin lelaki!</strong>
-          <strong>Jemputan ibu bapa pengantin perempuan!</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🎫</span>
+            <span class="item-title">Sebelum Majlis</span>
+          </div>
+          <div class="item-content">
+            Jemput berjumpa pengantin perempuan di bilik persediaan untuk memberi ucapan tahniah.
+            <strong>Para hadirin juga sila pastikan telah mendapat tiket jamuan yang diedarkan oleh ibu bapa pengantin.</strong>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🤵</span>
-          <span class="item-title">Kehadiran Pengantin Lelaki</span>
+      <div class="ceremony-item highlight-time">
+        <div class="item-time-column">
+          <span class="item-time">3:30</span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Seterusnya, kita menyambut salah seorang bintang hari ini, pengantin lelaki kita yang kacak.
-          <strong>Jemputan pengantin lelaki!</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🪑</span>
+            <span class="item-title">Tetamu Sila Duduk</span>
+          </div>
+          <div class="item-content">
+            Majlis perkahwinan akan bermula sebentar lagi. Semua tetamu dialu-alukan untuk memasuki dewan majlis dan sila duduk di tempat yang disediakan. Sila pastikan telefon bimbit ditetapkan kepada mod senyap.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">👰</span>
-          <span class="item-title">Kehadiran Pengantin Perempuan</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Kini, kita menyambut bintang sebenar hari ini, pengantin perempuan kita yang cantik.
-          <strong>Jemputan pengantin perempuan!</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🎤</span>
+            <span class="item-title">Kata Pembukaan</span>
+          </div>
+          <div class="item-content">
+            Terima kasih kepada semua yang hadir pada hari ini. Sekarang, kami akan memulakan majlis perkahwinan.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🙇</span>
-          <span class="item-title">Tunduk Hormat</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Pengantin lelaki dan pengantin perempuan akan memberi tunduk hormat antara satu sama lain.
-          <strong>Pengantin lelaki dan pengantin perempuan, sila tunduk hormat!</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🕯️</span>
+            <span class="item-title">Penyalaan Lilin Perpaduan</span>
+          </div>
+          <div class="item-content">
+            Kita akan memulakan dengan penyalaan lilin perpaduan oleh ibu kedua-dua belah keluarga.
+            <strong>Dijemput ibu bapa pengantin lelaki!</strong>
+            <strong>Dijemput ibu bapa pengantin perempuan!</strong>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">💍</span>
-          <span class="item-title">Pertukaran Cincin</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Pengantin lelaki dan pengantin perempuan kini akan bertukar cincin sebagai simbol ikrar mereka antara satu sama lain.
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🤵</span>
+            <span class="item-title">Kehadiran Pengantin Lelaki</span>
+          </div>
+          <div class="item-content">
+            Seterusnya, kita menyambut salah seorang bintang hari ini, pengantin lelaki kita yang kacak.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">📜</span>
-          <span class="item-title">Pengisytiharan Perkahwinan</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Kini kita akan meneruskan dengan pengisytiharan perkahwinan. Pegawai akan menjalankan pengisytiharan.
-          <strong>Melalui pengisytiharan ini, perkahwinan telah sempurna.</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">👰</span>
+            <span class="item-title">Kehadiran Pengantin Perempuan</span>
+          </div>
+          <div class="item-content">
+            Sekarang, kita menyambut bintang sebenar hari ini, pengantin perempuan kita yang cantik.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🗣️</span>
-          <span class="item-title">Kata-kata Restu</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Bapa-bapa kedua-dua belah keluarga telah menyediakan kata-kata restu penuh kasih sayang.
-          <strong>Bapa pengantin lelaki akan berucap terlebih dahulu.</strong>
-          <strong>Bapa pengantin perempuan akan menyusul.</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🙇</span>
+            <span class="item-title">Tunduk Hormat</span>
+          </div>
+          <div class="item-content">
+            Pengantin lelaki dan pengantin perempuan akan memberi tunduk hormat antara satu sama lain.
+            <strong>Pengacara: Pengantin lelaki dan pengantin perempuan, sila tunduk hormat!</strong>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🎵</span>
-          <span class="item-title">Persembahan Khas</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Kami telah menyediakan persembahan khas yang istimewa. Persembahan hari ini dipersembahkan oleh rakan pengantin lelaki.
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">💍</span>
+            <span class="item-title">Pertukaran Cincin</span>
+          </div>
+          <div class="item-content">
+            Pengantin lelaki dan pengantin perempuan kini akan bertukar cincin sebagai simbol ikrar mereka antara satu sama lain.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🙏</span>
-          <span class="item-title">Memberi Hormat kepada Ibu Bapa dan Tetamu</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Pengantin lelaki dan pengantin perempuan kini akan mengucapkan terima kasih kepada ibu bapa dan semua tetamu.
-          <strong>Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</strong>
-          Memberi hormat dengan penuh kesyukuran! Ibu bapa, sila memeluk anak perempuan dan menantu lelaki anda.
-          <div class="divider"></div>
-          <strong>Kini, sila bergerak ke hadapan ibu bapa pengantin lelaki.</strong>
-          Sekali lagi, memberi hormat dengan penuh kesyukuran! Ibu bapa, sila memeluk anak lelaki dan menantu perempuan anda.
-          <div class="divider"></div>
-          <strong>Kini, kami akan memberi salam kepada semua tetamu.</strong>
-          Terima kasih kepada semua kerana hadir. Kami akan hidup bahagia bersama. Pengantin, memberi hormat kepada tetamu!
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">📜</span>
+            <span class="item-title">Pengisytiharan Perkahwinan</span>
+          </div>
+          <div class="item-content">
+            Sekarang kita akan meneruskan dengan pengisytiharan perkahwinan. Pegawai akan menjalankan pengisytiharan.
+            <strong>Melalui pengisytiharan ini, majlis perkahwinan telah selesai.</strong>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">💐</span>
-          <span class="item-title">Perarakan Keluar</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Pengantin telah menyelesaikan semua prosiding majlis dan hanya tinggal perarakan menuju masa depan yang bahagia.
-          <strong>Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</strong>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🗣️</span>
+            <span class="item-title">Kata-kata Restu</span>
+          </div>
+          <div class="item-content">
+            Bapa kedua-dua belah keluarga telah menyediakan kata-kata restu penuh kasih sayang.
+            <strong>Bapa pengantin lelaki akan berucap terlebih dahulu.</strong>
+            <strong>Bapa pengantin perempuan akan menyusul.</strong>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item">
-      <div class="item-time-column">
-        <span class="item-time"></span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">📸</span>
-          <span class="item-title">Sesi Fotografi</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Ahli keluarga dan saudara-mara dijemput ke hadapan untuk sesi bergambar bersama pengantin.
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🎵</span>
+            <span class="item-title">Persembahan Khas</span>
+          </div>
+          <div class="item-content">
+            Kami telah menyediakan persembahan khas yang istimewa. Persembahan hari ini dipersembahkan oleh rakan pengantin lelaki.
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ceremony-item highlight-time">
-      <div class="item-time-column">
-        <span class="item-time">4:30</span>
-        <div class="item-time-line"></div>
-      </div>
-      <div class="item-content-column">
-        <div class="item-header">
-          <span class="icon">🍽️</span>
-          <span class="item-title">Selepas Majlis Selesai</span>
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
         </div>
-        <div class="item-content">
-          Sila hadir ke dewan bufet untuk jamuan
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🙏</span>
+            <span class="item-title">Memberi Hormat kepada Ibu Bapa dan Tetamu</span>
+          </div>
+          <div class="item-content">
+            Pengantin lelaki dan pengantin perempuan kini akan mengucapkan terima kasih kepada ibu bapa dan semua tetamu.
+            <strong>Pengacara: Sila berdiri di hadapan ibu bapa pengantin perempuan terlebih dahulu.</strong>
+            Ibu bapa, sila peluk anak perempuan dan menantu lelaki anda.
+            <div class="divider"></div>
+            <strong>Sekarang, sila bergerak ke hadapan ibu bapa pengantin lelaki.</strong>
+            Ibu bapa, sila peluk anak lelaki dan menantu perempuan anda.
+            <div class="divider"></div>
+            <strong>Sekarang, kami akan memberi salam kepada semua tetamu.</strong>
+            Terima kasih kepada semua kerana hadir.
+          </div>
+        </div>
+      </div>
+
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
+        </div>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">💐</span>
+            <span class="item-title">Perarakan Keluar</span>
+          </div>
+          <div class="item-content">
+            Pengantin telah menyelesaikan semua prosiding majlis dan akan berarak ke luar dewan.
+            <strong>Pengacara: Pengantin lelaki dan pengantin perempuan, mulakan perarakan keluar!</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="ceremony-item">
+        <div class="item-time-column">
+          <span class="item-time"></span>
+          <div class="item-time-line"></div>
+        </div>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">📸</span>
+            <span class="item-title">Sesi Fotografi</span>
+          </div>
+          <div class="item-content">
+            Ahli keluarga dan saudara-mara dijemput ke hadapan untuk sesi bergambar bersama pengantin.
+          </div>
+        </div>
+      </div>
+
+      <div class="ceremony-item highlight-time">
+        <div class="item-time-column">
+          <span class="item-time">4:30</span>
+          <div class="item-time-line"></div>
+        </div>
+        <div class="item-content-column">
+          <div class="item-header">
+            <span class="icon">🍽️</span>
+            <span class="item-title">Selepas Majlis Selesai</span>
+          </div>
+          <div class="item-content">
+            Sila hadir ke dewan bufet untuk jamuan dan tunjukkan tiket jamuan kepada staf dewan
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <footer class="footer">
     <div class="footer-main">✨ Tahniah Pengantin Baru ✨</div>
